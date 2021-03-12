@@ -1,0 +1,491 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700");
+@import url("style-home.css");
+
+a {
+  transition: all 0.3s ease-out 0s;
+  outline: none !important;
+}
+img {
+  max-width: 100%;
+}
+.padT1 {
+  padding-top: 5px;
+}
+.padT2 {
+  padding-top: 10px;
+}
+.padT3 {
+  padding-top: 15px;
+}
+.padT4 {
+  padding-top: 20px;
+}
+.padT5 {
+  padding-top: 25px;
+}
+.padT6 {
+  padding-top: 30px;
+}
+/*.logo img{width:inherit; border:0;}*/
+header {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  position: relative;
+}
+.navbar-toggle {
+  margin-top: 0;
+  top: -40px;
+  position: absolute;
+  right: 0;
+}
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  margin-bottom: 5px;
+}
+.navbar-nav > li a {
+  color: #bdfef2 !important;
+  padding: 15px 13px !important;
+}
+.search1 input,
+.search input {
+  font-size: 14px;
+}
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.sign a {
+  color: #bdfef2 !important;
+  font-size: 14px;
+}
+.video-heading.text-center {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+footer .border {
+  border: 0px !important;
+}
+.orange {
+  color: #ec670e;
+}
+.red {
+  color: #b52222;
+}
+
+.missions {
+  padding: 10px 0 70px;
+}
+.mission-row {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  justify-content: space-between;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.mission-col {
+  border-radius: 5px;
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  margin: 20px 10px 0;
+  flex: 1;
+  padding: 0px;
+}
+.missions .box {
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.box .mission-img {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+.box .mission-img span {
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+}
+.box .mission-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.box .mission-info {
+  flex: 0 0 60%;
+  max-width: 60%;
+  padding-left: 15px;
+}
+.mission-info h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #212121;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.mission-info p {
+  font-size: 15px;
+  font-weight: 400;
+  color: #7a7a7a;
+  line-height: 22px;
+  padding: 0;
+  min-height: 70px;
+  max-height: 70px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.action {
+  display: flex;
+  flex-wrap: wrap;
+  color: #7a7a7a;
+  font-size: 14px;
+}
+.action span {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  cursor: pointer;
+}
+.action span:first-child:hover {
+  color: #ec670e;
+}
+.action span:last-child:hover {
+  color: #b52222;
+}
+.action i {
+  font-size: 20px;
+}
+.action .fa-angle-down {
+  font-size: 16px;
+}
+.btn-load {
+  padding: 15px 30px !important;
+  font-size: 15px;
+  font-weight: bold;
+  border: 0;
+  background-color: #51b5b1;
+}
+.btn-load:hover {
+  background: #66ade1;
+}
+.btn-load .fa {
+  font-weight: 400;
+  font-size: 16px;
+  padding-right: 5px;
+}
+
+.modal .form-control {
+  height: 45px;
+  border-radius: 3px;
+}
+.modal label {
+  font-weight: 400;
+  color: #868686;
+}
+.modal-title {
+  padding: 10px 0;
+}
+.modal-header .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.modal-body {
+  padding: 15px 25px;
+}
+
+.mission-list {
+  display: none;
+}
+.missionbox {
+  background: #fafafa;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  display: flex;
+  padding: 10px 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.missionbox h4 {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.missionbox .mission-clm:last-child {
+  text-align: right;
+  border-left: 1px solid #d6d6d6;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.show-thumb .missions-list {
+  width: 50%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.show-thumb .mission-list {
+  width: 50%;
+  padding-left: 5px;
+  padding-right: 10px;
+  display: block;
+  order: 2;
+}
+.show-thumb .mission-row {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+.show-thumb .mission-col {
+  width: 100%;
+  float: none;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+.missions-list {
+  padding: 0 10px 0 0px;
+}
+.show-thumb .missions-list {
+  padding: 0 15px 0 0px;
+}
+.dark {
+  background: #222;
+}
+@media only screen and (max-width: 1024px) {
+  .mission-col {
+    float: none;
+    width: auto;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .mission-col {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .show-thumb .missions-list,
+  .show-thumb .mission-list {
+    float: none;
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .missions-list {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .toolbar {
+    float: none;
+    clear: both;
+    justify-content: center;
+  }
+  .toolrow {
+    border-bottom: 0;
+  }
+  .toolrow li {
+    max-width: 33.33%;
+    flex: 0 0 33.33%;
+    padding-left: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
+    min-height: 57px;
+  }
+  .toolrow li:first-child {
+    padding-left: 10px;
+  }
+  .toolrow li:last-child {
+    border-right: 1px solid #e6e6e6;
+  }
+  .toolrow li:nth-child(3) {
+    border-right: 0;
+  }
+  .toolrow li.show-sessions {
+    padding-top: 15px;
+  }
+  .box .mission-img span {
+    border: 1px solid #f8f8f8;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 0 10px;
+  }
+  .box .mission-img img {
+    object-fit: contain;
+  }
+  .show-thumb .mission-list {
+    order: 1;
+    max-width: 100%;
+    width: 100%;
+  }
+  .show-thumb .missions-list {
+    order: 2;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .toolrow li {
+    max-width: 50%;
+    flex: 0 0 50%;
+    text-align: left;
+  }
+  .toolrow li:nth-child(3) {
+    border-right: 1px solid #e6e6e6;
+  }
+  .toolrow li:nth-child(5) {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .toolbar .toolrow:last-child li:last-child {
+    border-right: 0;
+    border-bottom: 0;
+  }
+  .toolrow li:nth-child(2),
+  .toolrow li:nth-child(4),
+  .toolrow li:last-child {
+    border-right: 0;
+  }
+  /*.toolbar .toolrow:last-child li:first-child{border-bottom:0;}*/
+}
+@media only screen and (max-width: 800px) {
+  .links,
+  .video-sec,
+  .foter-logo {
+    max-width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 20px 0;
+  }
+  .foter-logo img {
+    width: auto;
+  }
+  .footer-p {
+    padding: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .show-thumb .mission-list {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .missions-list {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .mission-clm {
+    width: 50%;
+  }
+  .navbar-toggle {
+    top: -25px;
+  }
+  /*.collapse:not(.show){display:inherit;}*/
+  .collapse.in {
+    display: block;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .social .company {
+    padding-bottom: 15px;
+  }
+  .mission-clm {
+    width: 55%;
+  }
+  .missionbox .mission-clm:last-child {
+    width: 45%;
+  }
+  .missionbox h4 {
+    font-size: 16px;
+  }
+  .toolrow {
+    padding: 0 15px;
+  }
+  .main-footer {
+    padding: 0 20px;
+  }
+  header {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  header .logo {
+    max-width: 60%;
+  }
+  .navbar-toggle {
+    top: -35px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .mission-clm {
+    width: 40%;
+    text-align: center;
+  }
+  .missionbox .mission-clm:last-child {
+    width: 60%;
+  }
+  .toolrow li strong {
+    display: block;
+    padding-bottom: 5px;
+  }
+  .toolrow li:nth-child(5) strong {
+    display: inline-block;
+    padding-bottom: 0;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .social .company {
+    padding-bottom: 15px;
+  }
+  .box .mission-img,
+  .box .mission-info {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .box .mission-info {
+    padding: 20px 0 0;
+  }
+  .mission-info p {
+    min-height: inherit;
+    max-height: inherit;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .action span {
+    flex: 0 0 100%;
+    text-align: left;
+    padding: 10px 0;
+  }
+  .mission-clm {
+    width: 55%;
+  }
+  .missionbox .mission-clm:last-child {
+    width: 45%;
+  }
+  .toolrow li big {
+    font-size: 14px;
+    line-height: 18px;
+    padding-bottom: 5px;
+    display: block;
+    padding-right: 0px;
+  }
+  .toolrow li label {
+    margin-right: 30px;
+  }
+  .toolrow li {
+    padding-right: 0;
+  }
+  .navbar-toggle {
+    top: -25px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .toolrow li label {
+    margin-right: 15px;
+  }
+}
