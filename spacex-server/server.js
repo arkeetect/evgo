@@ -49,31 +49,16 @@ const resolvers = {
     Query: {
         async launches(parent, args, context, info) {
             const response = await axios.get("https://api.spacexdata.com/v3/launches");
-            let reduce = [];
-            response.data.forEach(element => {
-                let keep = true;
-
-                if (args.missionName) {
-                    keep = false;
-                    keep = element.mission_name.toLowerCase().includes(args.missionName.toLowerCase());
-                }
-
-                if (keep && args.launchYear) {
-                    keep = false;
-                    keep = element.launch_year.toLowerCase().includes(args.launchYear.toLowerCase());
-                }
-
-                if (keep && args.rocketName){
-                    keep = element.rocket.rocket_name.toLowerCase().includes(args.rocketName.toLowerCase())
-                }
-
-                if (keep) {
-                    reduce.push(element);
-                }
-
-            });
-            
-            return [...reduce]; // to make sure a single record stays iterable
+            return [...response.data.filter(item => args.missionName 
+                                        ? item.mission_name.toLowerCase().includes(args.missionName.toLowerCase()) 
+                                        : item)
+                                        .filter(item => args.launchYear
+                                        ? item.launch_year === args.launchYear
+                                        : item)
+                                        .filter(item => args.rocketName
+                                        ? item.rocket.rocket_name.toLowerCase().includes(args.rocketName.toLowerCase())
+                                        : item)];  // spread into a [...] to make sure a single record stays iterable
+             
         },
     },
 
