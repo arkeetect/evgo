@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useRef} from "react";
 import { gql, useLazyQuery } from "@apollo/client";
 
 const GET_LAUNCHES = gql`
@@ -21,16 +21,26 @@ const GET_LAUNCHES = gql`
     }`;
 
 const IndexPage = () => {
-    const [getLaunches, {loading, error, data}] = useLazyQuery(GET_LAUNCHES);
+    const [getLaunches, {loading, error, data}] = useLazyQuery(GET_LAUNCHES,{
+      onError(error) {
+        console.error(error);
+        setInvalidate(error);
+      }
+     });
     const [launchYear, setLaunchYear] = useState('');
     const [rocketName, setRocketName] = useState('');
     const [missionName, setMissionName] = useState('');
-    const [invalidate, setInvalidate] = useState('');
+    const invalidate = useRef();
     
     const clearFilters = () => {
         setMissionName('');
         setRocketName('');
         setLaunchYear('');
+        setInvalidate('');
+    }
+
+    const setInvalidate = (value) => {
+       invalidate.current.value = value;
     }
     const controlMissionName = (e) => {
         setMissionName(e.target.value);
@@ -40,26 +50,30 @@ const IndexPage = () => {
     }
 
     const controlLaunchYear = (e) => {
-        setLaunchYear(e.target.value);
+      setInvalidate('');
+      if(isNaN(e.target.value))
+            setInvalidate("Invalid launch year (YYYY)");
+      setLaunchYear(e.target.value);
+            
     }
     const preFetch = () => {
-        if (launchYear || rocketName || missionName) {
-            setInvalidate('');
+        if ( (launchYear || rocketName || missionName) && invalidate.current.value.length === 0)  {
+            setInvalidate('');  // reset validation error if all set to get launches
             getLaunches({ variables: { launchYear, rocketName, missionName} });
-        }else {
+        }else if(invalidate.current.value.length === 0) {
             setInvalidate("Please narrow search by specifying one of the criteria.");
         }
     }
     
-        if (loading === true) return (<div className="col-sm6">Loading...</div>);
+    if (loading === true) return (<div className="col-sm-6">Loading...</div>);
 
-        if (error === true) return (<div className="col-sm6">Error</div>);
+    if (error === true) return (<div className="col-sm-6">Error</div>);
 
     return (
         <>
         <div className="container">
         <header>
-        <div className="inputContainer">
+        <div className="inputContainer-large">
               
             <span className="text" >Mission Name: </span>
             <input className="Field" type="text" value={missionName} onChange={controlMissionName}></input>
@@ -73,12 +87,15 @@ const IndexPage = () => {
           <div className="inputContainer">
               
             <span className="text">Launch Yr. (YYYY): </span>
-            <input className="Field" type="text" value={launchYear} onChange={controlLaunchYear}></input>
+            <input className="field-small" type="text" value={launchYear} onChange={controlLaunchYear}></input>
         </div>
         </header>
         <button className="Button" onClick={preFetch}>Search</button>
         <button className="Button" onClick={clearFilters}>Clear Filter</button>
-        <h4 className="error">{invalidate}</h4>
+        <div>
+        <input className="error" ref={invalidate} tabIndex="-1" readOnly={true}></input>
+        <input className="results" value={data? `${data.launches.length} launch(es)` : ''}  tabIndex="-1" readOnly={true}></input>
+        </div>
       </div>
       <div>
           
@@ -94,8 +111,7 @@ const IndexPage = () => {
                     <div>{mission_name}</div>
                     <div>{rocket.rocket_name}</div> 
                     </h5>
-                    <div>{launch_date_utc}</div>
-                  
+                    <div>{launch_date_utc.split('T')[0]}</div>
                 </div>
                 <div className="mission-clm col-sm-5">
                 <a href={links.video_link}>{links.video_link? 'Launch Video' : 'No Video'}</a>

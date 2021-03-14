@@ -42,9 +42,8 @@ const typeDefs = gql`
     }
     `;
 
-const finder = async function(launch, name){
-    return launch.mission_name === name;
-}
+// resolver being GraphQL managed is already enclosed in one giant try/catch
+// so we can leave out the try/catch.
 const resolvers = {
     Query: {
         async launches(parent, args, context, info) {
